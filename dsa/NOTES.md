@@ -146,6 +146,36 @@ Pattern: **hash map = "pehle dekha hai kya?" ka jawab O(1) mein**. Do roop: (a) 
 - Do tareeke start-case ke: map {0: 1} se shuru, ya khaali map aur alag `if pre[i] == k {count++}`. Dono sahi.
 - O(n) time, O(n) space.
 
+## Week 1, Wednesday: two pointers
+
+### Pattern: Two Pointers
+- Kya hai: array ya string mein do index, jo har step par dono ko dekh kar decide karte hain kaun aage badhe. Do shape: (1) dono ends se andar, (2) ek hi side se read aur write pointer.
+- Kyun chahiye: nested loop O(n^2) ki jagah ek pass O(n), bina extra map ya array ke. Array mein structure chahiye (sorted ya symmetric), tab har step par pata hota hai kaun sa pointer hilana hai.
+- Real world: palindrome check, sorted price list se budget wale do items, sorted lists ka merge.
+
+### Valid Palindrome (easy)
+- Sawaal: sirf letters/digits dekho, case ignore, string aage-peeche ek jaisi hai ya nahi.
+- Brute force: saaf string banao, ulta karo, compare. O(n) time, O(n) space.
+- Optimize: left, right pointers; symbols par continue se skip; helpers isAlphaNum aur lower. O(n) time, O(1) space.
+- Galti: pehle sirf s[i] == s[right] kiya, symbols skip aur case nahi.
+
+### Two Sum II (easy-medium)
+- Sawaal: sorted array, do numbers ka sum target, 1-based index.
+- Idea: sum chhota to left++, bada to right--. Sorted hone se koi jodi miss nahi hoti.
+- Galtiyan: == target branch nahi, loop ke baad return, 0-based index.
+
+### Remove Duplicates from Sorted Array (easy-medium)
+- Sawaal: in place unique, pehle k elements, k return.
+- Idea: read index r, write index w. nums[r] != nums[w-1] to nums[w] = nums[r], w++. w <= r hamesha, overwrite safe.
+- Galtiyan: sirf ginti nikali array nahi badla; single element par index out of range; append se delete (caller ki length nahi badalti, O(n^2)). Go mein pop nahi, upar likho aur k return karo.
+
+### Sort Colors (medium)
+- Sawaal: 0/1/2 array in place sort, sort package nahi.
+- Counting: gino phir dobara likho, do pass O(n), O(1).
+- Ek pass (Dutch flag): mid par value dekho. 0: lo se swap, lo++, mid++. 1: mid++. 2: hi se swap, hi-- (mid wahin).
+- 4 zones: [pakke 0 | pakke 1 | abhi dekhne baaki | pakke 2] = [0..lo-1 | lo..mid-1 | mid..hi | hi+1..].
+- Galti: nums[mid] ko nums[hi] se compare kiya aur dono branch mein swap.
+
 ---
 
 ## Mistake log (weak spots dekhne ke liye)
@@ -176,6 +206,11 @@ Pattern: **hash map = "pehle dekha hai kya?" ka jawab O(1) mein**. Do roop: (a) 
 
 | 27 Oct | Contiguous Array | brute force mein `if zeros == ones` inner loop ke bahar; map key/value ulte; `sum` update bhool gaye; lookup `seen[nums[i]]` ki jagah `seen[sum]` | `{0: -1}` aur pehla index hi kyun |
 | 27 Oct | Subarray Sum Equals K | alag loop mein seen bharna (aage wale prefix bhi gin jaate hain) | lookup pehle, add baad mein; map mein ginti |
+
+| 28 Oct | Valid Palindrome | symbols skip aur case nahi kiya | helper functions, continue |
+| 28 Oct | Two Sum II | == target branch nahi, loop ke baad return, 0-based | sorted se pointer move safe |
+| 28 Oct | Remove Duplicates | array nahi badla, single element crash, append se delete | read/write pointer, k return |
+| 28 Oct | Sort Colors | nums[mid] vs nums[hi] compare | mid ki value dekho, 4 zones |
 
 ## Naya weekly schedule (26 Oct se)
 - Mon: naya pattern (easy-medium). Tue: usi pattern ke hard. Wed: doosra pattern (easy-medium). Thu: usi ke hard.

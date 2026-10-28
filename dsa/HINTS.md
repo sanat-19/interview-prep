@@ -20,6 +20,10 @@ Roz ke hints yahan jodte jaayenge. Naya problem aaye to pehle is table mein dekh
 | 8e | **Baar-baar kisi range ka sum** poocha jaye (ya subarray sum) | Prefix sum ek baar banao. Range = do prefix ka ghatav | Har query mein wahi numbers dobara jodna waste hai | Range Sum Query |
 | 8f | **0/1 array, barabar ginti** ya "balanced" hissa | 0 ko -1 maano, prefix sum. Same prefix do jagah = balanced hissa. Map: sum -> pehla index | Har (i,j) pe ginti dobara | Contiguous Array |
 | 8g | **Kitne subarrays ka sum k** (negative bhi ho sakte) | Prefix sum + map. `sum - k` pehle kitni baar aaya. Map: sum -> ginti, `{0:1}` se shuru | Har (i,j) ka sum nikalna | Subarray Sum Equals K |
+| 9a | **Sorted array**, do numbers ka sum / pair dhoondhna | Do pointers dono ends se. Sum chhota left++, bada right-- | Har jodi (i, j) try karna | Two Sum II |
+| 9b | String/array **symmetric** check (palindrome) | left aur right andar ki taraf, non-alphanumeric skip | Naya reversed string banana | Valid Palindrome |
+| 9c | Sorted array mein **in place** duplicates hatana | Read aur write pointer, nums[w] = nums[r]. Go mein pop/append nahi, upar likho | append se delete (O(n^2)) | Remove Duplicates |
+| 9d | Sirf **0/1/2** (teen values) ko sort | Ginti ya Dutch flag (lo, mid, hi). mid ki value dekho, hi se compare nahi | Poora sort lagana | Sort Colors |
 | 14d | Set/map bana hi diya hai, ab uspar loop chahiye | Original array par nahi, `for x := range seen` (duplicates hat jaate hain) | Duplicates se same kaam baar-baar hota hai | Longest Consecutive Sequence |
 | 14e | Nested loop mein "is number ko skip karo" | `continue` sabse andar wale loop par asar karta hai. Check bahar wale loop mein, andar se pehle lagao | Warna infinite loop | Longest Consecutive Sequence |
 | 14f | Strings ki list ko ek string mein pack karna (kuch bhi character ho sakta hai) | Har string ke aage uski lambai likho (5#hello). Decode lambai padh ke utne bytes uthata hai | Delimiter ya base64 ki zarurat nahi, koi collision nahi | Encode/Decode Strings |
