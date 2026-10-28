@@ -24,6 +24,9 @@ Roz ke hints yahan jodte jaayenge. Naya problem aaye to pehle is table mein dekh
 | 9b | String/array **symmetric** check (palindrome) | left aur right andar ki taraf, non-alphanumeric skip | Naya reversed string banana | Valid Palindrome |
 | 9c | Sorted array mein **in place** duplicates hatana | Read aur write pointer, nums[w] = nums[r]. Go mein pop/append nahi, upar likho | append se delete (O(n^2)) | Remove Duplicates |
 | 9d | Sirf **0/1/2** (teen values) ko sort | Ginti ya Dutch flag (lo, mid, hi). mid ki value dekho, hi se compare nahi | Poora sort lagana | Sort Colors |
+| 9e | Do deewaron/lines ke beech **area** ka max | Ends se two pointers, chhoti deewar wala pointer hilao | Har jodi (i, j) | Container With Most Water |
+| 9f | **Triplet / teen numbers** ka sum target, unique results | Sort, ek number fix, baaki do ke liye two pointers. Duplicates i par aur hit ke baad skip | Teen nested loops O(n^3) | 3Sum |
+| 9g | **Paani / water between bars**, har index par min(leftMax, rightMax) | Prefix/suffix max arrays, ya sabse unchi deewar tak do loops, ya two pointers | Har index ke liye max dobara nikalna | Trapping Rain Water |
 | 14d | Set/map bana hi diya hai, ab uspar loop chahiye | Original array par nahi, `for x := range seen` (duplicates hat jaate hain) | Duplicates se same kaam baar-baar hota hai | Longest Consecutive Sequence |
 | 14e | Nested loop mein "is number ko skip karo" | `continue` sabse andar wale loop par asar karta hai. Check bahar wale loop mein, andar se pehle lagao | Warna infinite loop | Longest Consecutive Sequence |
 | 14f | Strings ki list ko ek string mein pack karna (kuch bhi character ho sakta hai) | Har string ke aage uski lambai likho (5#hello). Decode lambai padh ke utne bytes uthata hai | Delimiter ya base64 ki zarurat nahi, koi collision nahi | Encode/Decode Strings |

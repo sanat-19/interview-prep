@@ -176,6 +176,23 @@ Pattern: **hash map = "pehle dekha hai kya?" ka jawab O(1) mein**. Do roop: (a) 
 - 4 zones: [pakke 0 | pakke 1 | abhi dekhne baaki | pakke 2] = [0..lo-1 | lo..mid-1 | mid..hi | hi+1..].
 - Galti: nums[mid] ko nums[hi] se compare kiya aur dono branch mein swap.
 
+### Container With Most Water (medium)
+- Sawaal: height array, do deewarein chuno, sabse zyada paani. area = (j - i) * min(height[i], height[j]).
+- Brute force: har jodi (i, j), O(n^2).
+- Optimize: left, right ends se. Hamesha chhoti deewar wala pointer hilao, kyunki chhoti deewar ko pakde rakhne se width ghatne par area sirf ghat sakta hai. Barabar ho to dono hila sakte hain. O(n) time, O(1) space.
+
+### 3Sum (medium)
+- Sawaal: saare alag triplets jinka sum 0, duplicate triplet nahi.
+- Idea: sort, ek number i fix, baaki do ko Two Sum II ki tarah left/right se. O(n^2), isse behtar nahi.
+- Duplicates: i par nums[i] == nums[i-1] to continue; triplet milne ke baad left aur right ko equal values se aage skip. Chhota speed-up: nums[i] > 0 par break.
+- Galtiyan: right = len(nums) (out of range), left = i (i+1 hona chahiye), sum 0 par pointers nahi hile (infinite loop), duplicates skip nahi.
+
+### Trapping Rain Water (hard), IN PROGRESS
+- Sawaal: deewaron ke beech kitna paani phansta hai.
+- Har index par paani = min(leftMax, rightMax) - height[i]. Brute force O(n^2), arrays se O(n) time O(n) space, two pointers O(n) time O(1) space.
+- Apna tareeka: left wall se chalo, pending paani tab pakka maano jab right mein >= wall mile. Bug: end ko infinite wall maan liya. Fix: sabse unchi deewar m dhoondo, left loop 0 se m tak aur right loop end se m tak. m dono taraf ka asli wall hai.
+- Baaki: apne haath se ye code likhna (Sun 8 Nov).
+
 ---
 
 ## Mistake log (weak spots dekhne ke liye)
@@ -211,6 +228,10 @@ Pattern: **hash map = "pehle dekha hai kya?" ka jawab O(1) mein**. Do roop: (a) 
 | 28 Oct | Two Sum II | == target branch nahi, loop ke baad return, 0-based | sorted se pointer move safe |
 | 28 Oct | Remove Duplicates | array nahi badla, single element crash, append se delete | read/write pointer, k return |
 | 28 Oct | Sort Colors | nums[mid] vs nums[hi] compare | mid ki value dekho, 4 zones |
+
+| 28 Oct | Container With Most Water | koi nahi (seedha two pointers likha) | chhoti deewar hilao |
+| 28 Oct | 3Sum | right = len(nums), left = i, pointers nahi hile, duplicates | i par skip, hit ke baad skip |
+| 28 Oct | Trapping Rain Water | end ko infinite wall maana | sabse unchi deewar tak do loops, abhi code baaki |
 
 ## Naya weekly schedule (26 Oct se)
 - Mon: naya pattern (easy-medium). Tue: usi pattern ke hard. Wed: doosra pattern (easy-medium). Thu: usi ke hard.
